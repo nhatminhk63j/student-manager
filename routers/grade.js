@@ -9,5 +9,6 @@ router.get('/', studentController.renderGrade)
 
 router.post('/', studentController.getGrades);
 
+router.get('/get', studentController.getGrades);
 
 module.exports = router;

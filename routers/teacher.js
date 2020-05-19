@@ -9,6 +9,7 @@ router.use(express.static(path.join(__dirname, '..' , 'public')));
 router.use(authController.isLogging);
 
 router.get('/', teacherController.renderTeachers);
+router.get('/get', teacherController.getTeachers)
 router.post('/', teacherController.getTeachers);
 router.get('/:id', teacherController.getTeacher);
 

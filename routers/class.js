@@ -10,5 +10,6 @@ router.get('/', studentController.renderClasses);
 
 router.post('/', studentController.getClasses)
 
+router.get('/get', studentController.getClasses)
 
 module.exports = router;

@@ -1,14 +1,13 @@
 extends base
 block content
-    .content
-        .finding-box
-                form.input-box(method='POST')
-                        input(id='txt1-search' type='text' name='year' placeholder='Enter year')
-                        | 
-                        input(id='txt2-search' type='text' name='semester' placeholder='Enter semester')
-                        input(id='img-search' type='submit' value='Search')
-        div
-            table
+    d.d-flex.justify-content-end
+            form(method='POST')
+                input.form-input(id='txt1-search' type='text' name='year' placeholder='Enter year')
+                input.form-input(id='txt2-search' type='text' name='semester' placeholder='Enter semester')
+                input.btn.btn-primary(id='img-search' type='submit' value='Search')
+    div
+        table.table.m-3.table-bordered
+            thead
                 tr
                     th Name
                     th Room
@@ -17,7 +16,7 @@ block content
                     th Period
                     th Status
                     th Teacher
-                        
+            if classes
                 each i in classes
                     tr
                         td= i.subject_name
@@ -28,4 +27,4 @@ block content
                         td= i.status
                         td
                             a(href=`/teachers/${i.teacher_Id}` style='background-color:yellowgreen;text-decoration:none') #{i.full_name}
-                        
+                

@@ -1,69 +1,129 @@
 extends base
 block content
-    .content
-        form(method='post')
-            .content-info
-                h3 Personal Info
-                    .row
-                        .col-25
-                            label ID
-                        .col-75
-                            b= teacher.teacher_Id
+    //- .content
+    //-     form(method='post')
+    //-         .content-info
+    //-             h3 Personal Info
+    //-                 .row
+    //-                     .col-25
+    //-                         label ID
+    //-                     .col-75
+    //-                         b= teacher.teacher_Id
                         
-                    div
-                        row
-                            .col-25
-                                label Full name
-                            .col-75
-                                b= teacher.full_name
+    //-                 div
+    //-                     row
+    //-                         .col-25
+    //-                             label Full name
+    //-                         .col-75
+    //-                             b= teacher.full_name
 
-                    .row
-                        .col-25
-                            label Date of birth 
-                        .col-75
-                            b= teacher.birthDay
+    //-                 .row
+    //-                     .col-25
+    //-                         label Date of birth 
+    //-                     .col-75
+    //-                         b= teacher.birthDay
                         
-                    .row
-                        .col-25
-                            label Gender 
-                        .col-75
-                            b= teacher.gender
+    //-                 .row
+    //-                     .col-25
+    //-                         label Gender 
+    //-                     .col-75
+    //-                         b= teacher.gender
 
-                    .row
-                        .col-25
-                            label Department 
-                        .col-75
-                            b= teacher.department
+    //-                 .row
+    //-                     .col-25
+    //-                         label Department 
+    //-                     .col-75
+    //-                         b= teacher.department
                         
-                    .row
-                        .col-25
-                            label Role 
-                        .col-75
-                            b= teacher.role
+    //-                 .row
+    //-                     .col-25
+    //-                         label Role 
+    //-                     .col-75
+    //-                         b= teacher.role
 
-                    .row
-                        .col_25
-                            label Other Details
-                        .col-75
-                            p= teacher.other_details
+    //-                 .row
+    //-                     .col_25
+    //-                         label Other Details
+    //-                     .col-75
+    //-                         p= teacher.other_details
                         
-            .content-contact
-                h3 Contact Info
-                    form(method='post')
-                        .row
-                            .col-25
-                                label Address
-                            .col-75
-                                b= teacher.address
+    //-         .content-contact
+    //-             h3 Contact Info
+    //-                 form(method='post')
+    //-                     .row
+    //-                         .col-25
+    //-                             label Address
+    //-                         .col-75
+    //-                             b= teacher.address
                             
-                        .row
-                            .col-25
-                                label Email
-                            .col-75
-                                b= teacher.email
+    //-                     .row
+    //-                         .col-25
+    //-                             label Email
+    //-                         .col-75
+    //-                             b= teacher.email
                 
-                        .row
-                            .col-25
-                                label Phone 
-                            .col-75
-                                b= teacher.phone
+    //-                     .row
+    //-                         .col-25
+    //-                             label Phone 
+    //-                         .col-75
+    //-                             b= teacher.phone
+    form(action="", method="post").mt-5
+        .form-group
+            .container
+                .row
+                    .col-md-6
+                        .container-fluid
+                            h4 Personal Info :
+                            .row
+                                .col-md-3
+                                    label(for="") ID
+                                .col-md-9
+                                    b= teacher.teacher_Id
+                            .row
+                                .col-md-3
+                                    label(for="") FullName
+                                .col-md-9
+                                    b= teacher.full_name
+                            .row
+                                .col-md-3
+                                    label(for="") Date of birth
+                                .col-md-9
+                                    b= teacher.birthDay
+                            .row
+                                .col-md-3
+                                    label(for="") Gender
+                                .col-md-9
+                                    b= teacher.gender
+                            .row
+                                .col-md-3
+                                    label(for="") Department
+                                .col-md-9
+                                    b= teacher.department
+                            .row
+                                .col-md-3
+                                    label(for="") Role
+                                .col-md-9
+                                    b= teacher.role
+                            .row
+                                .col-md-3
+                                    label(for="") Other details
+                                .col-md-9
+                                    p= teacher.other_details
+                    .col-md-6
+                        .container-fluid
+                            h4 Contact Info :
+                            .row
+                                .col-md-3
+                                    label(for="") Address
+                                .col-md-9
+                                    b= teacher.address
+                            .row
+                                .col-md-3
+                                    label(for="") Email
+                                .col-md-9
+                                    b= teacher.email
+                            .row
+                                .col-md-3
+                                    label(for="") Phone
+                                .col-md-9
+                                    b= teacher.Phong

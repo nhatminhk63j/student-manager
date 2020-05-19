@@ -1,26 +1,25 @@
 extends base
 block content
-    .content
-        .finding-box
-            form.input-box(method='POST')
-                    input(id='txt1-search' type='text' name='year' placeholder='Enter year')
-                    | 
-                    input(id='txt2-search' type='text' name='semester' placeholder='Enter semester')
-                    input(id='img-search' type='submit' value='Search')
+    d.d-flex.justify-content-end
+            form(method='POST')
+                input.form-input(id='txt1-search' type='text' name='year' placeholder='Enter year')
+                input.form-input(id='txt2-search' type='text' name='semester' placeholder='Enter semester')
+                input.btn.btn-primary(id='img-search' type='submit' value='Search')
                     
-        div
-            table
+    div
+        table.table.mt-5.table-bordered
+            thead
                 tr
                     th Subject
                     th Mid term
                     th Final
                     th Avarage
-
+            if grades
                 each a in grades
                     tr
                         td= a.subject_name
                         td= a.midterm
                         td= a.final
                         td= a.avarage
-                    
+                
                         

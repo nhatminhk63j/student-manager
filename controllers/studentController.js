@@ -31,24 +31,50 @@ exports.getStudent =catchAsync( async (req,res,next) => {
 })
 
 exports.getClasses = catchAsync( async (req,res,next) => {
-        const user = req.user;
+        // const user = req.user;
 
-        const {year, semester} = req.body;
+        // const {year, semester} = req.body;
 
-        //console.log(user.student_Id);
+        // //console.log(user.student_Id);
 
-        //console.log(year +',' + semester);
+        // //console.log(year +',' + semester);
 
-        const query = `select DISTINCT subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, teachers.teacher_Id, classes.status 
-        from classes JOIN courses ON classes.course_Id = courses.course_Id
-        JOIN teachers ON courses.teacher_Id = teachers.teacher_Id JOIN subject ON subject.subject_Id = courses.subject_Id
-        where classes.student_Id = ${user.student_Id} and classes.school_year = ${year} and classes.semester = ${semester}`;
+        // const query = `select DISTINCT subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, teachers.teacher_Id, classes.status 
+        // from classes JOIN courses ON classes.course_Id = courses.course_Id
+        // JOIN teachers ON courses.teacher_Id = teachers.teacher_Id JOIN subject ON subject.subject_Id = courses.subject_Id
+        // where classes.student_Id = ${user.student_Id} and classes.school_year = ${year} and classes.semester = ${semester}`;
 
-        const classes = await queryFunc(query);
+        // const classes = await queryFunc(query);
 
-        if (classes.length === 0) return next(new appError(404, 'invalid year or semester'));
+        // if (classes.length === 0) return next(new appError(404, 'invalid year or semester'));
 
         //console.log(classes[0]);
+        let classes = [
+            {
+                subject_name: 'Math',
+                room: '308GD2',
+                building: 'abc',
+                class_on: 'xyz',
+                period: 'asd',
+                status: 'true'
+            },
+            {
+                subject_name: 'Math',
+                room: '308GD2',
+                building: 'abc',
+                class_on: 'xyz',
+                period: 'asd',
+                status: 'true'
+            },
+            {
+                subject_name: 'Math',
+                room: '308GD2',
+                building: 'abc',
+                class_on: 'xyz',
+                period: 'asd',
+                status: 'true'
+            }
+        ]
 
         res.status(200).render('class', {
             title: 'Class List',
@@ -58,18 +84,32 @@ exports.getClasses = catchAsync( async (req,res,next) => {
 });
 
 exports.getGrades = catchAsync (async (req, res, next) => {
-    const user = req.user;
+    // const user = req.user;
 
-    const {year, semester} = req.body;
+    // const {year, semester} = req.body;
 
-    const query = `SELECT DISTINCT subject.subject_name ,grades.midterm, grades.final, (grades.midterm + grades.final)/2 as avarage FROM grades JOIN classes ON grades.class_Id = classes.class_Id
-    JOIN courses ON courses.course_Id = classes.course_Id JOIN subject ON courses.subject_Id = subject.subject_Id WHERE classes.school_year = ${year} AND classes.semester = ${semester} and classes.student_Id = ${user.student_Id}`;
+    // const query = `SELECT DISTINCT subject.subject_name ,grades.midterm, grades.final, (grades.midterm + grades.final)/2 as avarage FROM grades JOIN classes ON grades.class_Id = classes.class_Id
+    // JOIN courses ON courses.course_Id = classes.course_Id JOIN subject ON courses.subject_Id = subject.subject_Id WHERE classes.school_year = ${year} AND classes.semester = ${semester} and classes.student_Id = ${user.student_Id}`;
 
-    const grades = await queryFunc(query);
+    // const grades = await queryFunc(query);
 
-    if (grades.length === 0) return next(new appError(404, 'invalid year or semester'));
+    // if (grades.length === 0) return next(new appError(404, 'invalid year or semester'));
 
-    console.log(grades);
+    // console.log(grades);
+    var grades = [
+        {
+            subject_name: 'Math',
+            midterm: 10,
+            final: 10,
+            avarage: 10
+        },
+        {
+            subject_name: 'Chemistry',
+            midterm: 10,
+            final: 5.5,
+            avarage: 7.3
+        }
+    ]
 
     res.status(200).render('grade', {
         title: 'Grade',
